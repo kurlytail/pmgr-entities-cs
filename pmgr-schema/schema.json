@@ -1,0 +1,793 @@
+{
+    "acquireProjectTeam": {
+        "inputs": [
+            "enterpriseEnvironmentalFactors",
+            "organizationalProcessAssets",
+            "rolesAndResponsibilities",
+            "projectOrganizationalCharts",
+            "staffingManagementPlan"
+        ],
+        "outputs": ["projectStaffAssignments", "resourceAvailability", "staffingManagementPlan"],
+        "tools": ["preassignment", "negotiation", "acquisition", "virtualTeams"],
+        "processGroup": "executing",
+        "process": "humanResourceManagement"
+    },
+    "activityDefinition": {
+        "inputs": [
+            "enterpriseEnvironmentalFactors",
+            "organizationalProcessAssets",
+            "projectScopeStatement",
+            "wbs",
+            "wbsDictionary",
+            "projectManagementPlan"
+        ],
+        "outputs": ["requestedChanges", "milestoneList", "activityAttributes", "activityList"],
+        "tools": ["decomposition", "templates", "rollingWavePlanning", "expertJudgement", "planningComponent"],
+        "processGroup": "planning",
+        "process": "timeManagement"
+    },
+    "activityDurationEstimating": {
+        "inputs": [
+            "enterpriseEnvironmentalFactors",
+            "organizationalProcessAssets",
+            "projectScopeStatement",
+            "activityList",
+            "activityAttributes",
+            "activityResourceRequirements",
+            "resourceCalendars",
+            "riskRegister",
+            "activityCostEstimates"
+        ],
+        "outputs": ["activityDurationEstimates", "activityAttributes"],
+        "tools": [
+            "expertJudgement",
+            "analogousEstimating",
+            "parametricEstimating",
+            "threePointEstimates",
+            "reserveAnalysis"
+        ],
+        "processGroup": "planning",
+        "process": "timeManagement"
+    },
+    "activityResourceEstimating": {
+        "inputs": [
+            "enterpriseEnvironmentalFactors",
+            "organizationalProcessAssets",
+            "activityList",
+            "activityAttributes",
+            "resourceAvailability",
+            "projectManagementPlan"
+        ],
+        "outputs": [
+            "requestedChanges",
+            "resourceCalendars",
+            "resourcesBreakdownStructure",
+            "activityAttributes",
+            "activityResourceRequirements"
+        ],
+        "tools": [
+            "expertJudgement",
+            "alternativesAnalysis",
+            "publishedEstimatingData",
+            "projectManagementSoftware",
+            "bottomUpEstimating"
+        ],
+        "processGroup": "planning",
+        "process": "timeManagement"
+    },
+    "activitySequencing": {
+        "inputs": [
+            "projectScopeStatement",
+            "activityList",
+            "activityAttributes",
+            "milestoneList",
+            "approvedChangeRequests"
+        ],
+        "outputs": ["projectScheduleNetworkDiagrams", "activityList", "activityAttributes", "requestedChanges"],
+        "tools": ["pdm", "adm", "scheduleNetworkTemplates", "dependencyDetermination", "applyingLeadsAndLags"],
+        "processGroup": "planning",
+        "process": "timeManagement"
+    },
+    "closeProject": {
+        "inputs": [
+            "projectManagementPlan",
+            "contractDocumentation",
+            "enterpriseEnvironmentalFactors",
+            "organizationalProcessAssets",
+            "workPerformanceInformation",
+            "deliverables"
+        ],
+        "outputs": [
+            "administrativeClosureProcedure",
+            "contractClosureProcedure",
+            "finalProductServiceOrResult",
+            "organizationalProcessAssets"
+        ],
+        "tools": ["projectManagementMethodology", "projectManagementInformationSystem", "expertJudgement"],
+        "processGroup": "closing",
+        "process": "integrationManagement"
+    },
+    "communicationsPlanning": {
+        "inputs": [
+            "enterpriseEnvironmentalFactors",
+            "organizationalProcessAssets",
+            "projectScopeStatement",
+            "projectManagementPlan"
+        ],
+        "outputs": ["communicationsManagementPlan"],
+        "tools": ["communicationsRequirementsAnalysis", "communicationsTechnology"],
+        "processGroup": "planning",
+        "process": "communicationsManagement"
+    },
+    "contractAdministration": {
+        "inputs": [
+            "selectedSellers",
+            "performanceReports",
+            "approvedChangeRequests",
+            "workPerformanceInformation",
+            "contractManagementPlan",
+            "outsourceContract"
+        ],
+        "outputs": [
+            "contractDocumentation",
+            "requestedChanges",
+            "recommendedCorrectiveActions",
+            "organizationalProcessAssets",
+            "procurementManagementPlan",
+            "contractManagementPlan"
+        ],
+        "tools": [
+            "contractChangeControlSystem",
+            "buyerConductedPerformanceReviews",
+            "inspectionsAndAudits",
+            "performanceReporting",
+            "paymentSystem",
+            "claimsAdministration",
+            "recordsManagementSystem",
+            "informationTechnology"
+        ],
+        "processGroup": "monitoringAndControlling",
+        "process": "procurementManagement"
+    },
+    "contractClosure": {
+        "inputs": [
+            "procurementManagementPlan",
+            "contractManagementPlan",
+            "contractDocumentation",
+            "contractClosureProcedure"
+        ],
+        "outputs": ["closedContracts", "organizationalProcessAssets"],
+        "tools": ["procurementAudits", "recordsManagementSystem", "makeBuyAnalysis"],
+        "processGroup": "closing",
+        "process": "procurementManagement"
+    },
+    "costBudgeting": {
+        "inputs": [
+            "projectScopeStatement",
+            "wbs",
+            "wbsDictionary",
+            "activityCostEstimates",
+            "activityCostEstimateSupportingDetail",
+            "projectSchedule",
+            "resourceCalendars",
+            "contract",
+            "costManagementPlan"
+        ],
+        "outputs": ["requestedChanges", "costManagementPlan", "projectFundingRequirements", "costBaseline"],
+        "tools": ["costAggregation", "reserveAnalysis", "parametricEstimating", "fundingLimitReconciliation"],
+        "processGroup": "planning",
+        "process": "costManagement"
+    },
+    "costControl": {
+        "inputs": [
+            "costBaseline",
+            "projectFundingRequirements",
+            "performanceReports",
+            "projectManagementPlan",
+            "workPerformanceInformation",
+            "approvedChangeRequests"
+        ],
+        "outputs": [
+            "costEstimate",
+            "costBaseline",
+            "performanceMeasurements",
+            "forecastedCompletion",
+            "requestedChanges",
+            "recommendedCorrectiveActions",
+            "organizationalProcessAssets",
+            "projectManagementPlan"
+        ],
+        "tools": [
+            "costChangeControlSystem",
+            "performanceMeasurementAnalysis",
+            "forecasting",
+            "projectPerformanceReviews",
+            "projectManagementSoftware",
+            "varianceMeasurement"
+        ],
+        "processGroup": "monitoringAndControlling",
+        "process": "costManagement"
+    },
+    "costEstimating": {
+        "inputs": [
+            "enterpriseEnvironmentalFactors",
+            "organizationalProcessAssets",
+            "projectScopeStatement",
+            "wbs",
+            "wbsDictionary",
+            "projectManagementPlan"
+        ],
+        "outputs": [
+            "costManagementPlan",
+            "requestedChanges",
+            "activityCostEstimateSupportingDetail",
+            "activityCostEstimates"
+        ],
+        "tools": [
+            "analogousEstimating",
+            "determineResourceCostRates",
+            "bottomUpEstimating",
+            "parametricEstimating",
+            "projectManagementSoftware",
+            "reserveAnalysis",
+            "costOfQuality",
+            "vendorBidAnalysis"
+        ],
+        "processGroup": "planning",
+        "process": "costManagement"
+    },
+    "createWbs": {
+        "inputs": [
+            "organizationalProcessAssets",
+            "projectScopeStatement",
+            "projectScopeManagementPlan",
+            "approvedChangeRequests"
+        ],
+        "outputs": [
+            "requestedChanges",
+            "projectScopeManagementPlan",
+            "scopeBaseline",
+            "wbsDictionary",
+            "wbs",
+            "projectScopeStatement"
+        ],
+        "tools": ["wbsTemplates", "decomposition"],
+        "processGroup": "planning",
+        "process": "scopeManagement"
+    },
+    "developPreliminaryProjectScopeStatement": {
+        "inputs": [
+            "projectCharter",
+            "organizationalProcessAssets",
+            "enterpriseEnvironmentalFactors",
+            "projectStatementOfWork"
+        ],
+        "outputs": ["preliminaryProjectScopeStatement"],
+        "tools": ["projectManagementMethodology", "projectManagementInformationSystem", "expertJudgement"],
+        "processGroup": "initiating",
+        "process": "integrationManagement"
+    },
+    "developProjectCharter": {
+        "inputs": [
+            "contract",
+            "projectStatementOfWork",
+            "enterpriseEnvironmentalFactors",
+            "organizationalProcessAssets"
+        ],
+        "outputs": ["projectCharter"],
+        "tools": [
+            "projectSelectionMethods",
+            "projectManagementMethodology",
+            "projectManagementInformationSystem",
+            "expertJudgement"
+        ],
+        "processGroup": "initiating",
+        "process": "integrationManagement"
+    },
+    "developProjectManagementPlan": {
+        "inputs": [
+            "projectManagementProcesses",
+            "enterpriseEnvironmentalFactors",
+            "organizationalProcessAssets",
+            "preliminaryProjectScopeStatement"
+        ],
+        "outputs": ["projectManagementPlan"],
+        "tools": ["projectManagementMethodology", "projectManagementInformationSystem", "expertJudgement"],
+        "processGroup": "planning",
+        "process": "integrationManagement"
+    },
+    "developProjectTeam": {
+        "inputs": ["projectStaffAssignments", "staffingManagementPlan", "resourceAvailability"],
+        "outputs": ["teamPerformanceAssessment"],
+        "tools": [
+            "generalManagementSkills",
+            "training",
+            "teamBuildingActivities",
+            "groundRules",
+            "colocation",
+            "recognitionRewards"
+        ],
+        "processGroup": "executing",
+        "process": "humanResourceManagement"
+    },
+    "directAndManageProjectExecution": {
+        "inputs": [
+            "projectManagementPlan",
+            "approvedCorrectiveActions",
+            "approvedPreventiveActions",
+            "approvedChangeRequests",
+            "approvedDefectRepair",
+            "validatedDefectRepair",
+            "administrativeClosureProcedure"
+        ],
+        "outputs": [
+            "deliverables",
+            "workPerformanceInformation",
+            "requestedChanges",
+            "implementedChangeRequests",
+            "implementedCorrectiveActions",
+            "implementedPreventiveActions",
+            "implementedDefectRepair"
+        ],
+        "tools": ["projectManagementMethodology", "projectManagementInformationSystem"],
+        "processGroup": "executing",
+        "process": "integrationManagement"
+    },
+    "humanResourcePlanning": {
+        "inputs": ["enterpriseEnvironmentalFactors", "organizationalProcessAssets", "projectManagementPlan"],
+        "outputs": ["rolesAndResponsibilities", "projectOrganizationalCharts", "staffingManagementPlan"],
+        "tools": ["organizationalCharts", "networking", "organizationalTheory"],
+        "processGroup": "planning",
+        "process": "humanResourceManagement"
+    },
+    "informationDistribution": {
+        "inputs": ["communicationsManagementPlan"],
+        "outputs": ["organizationalProcessAssets", "requestedChanges"],
+        "tools": [
+            "communicationsSkills",
+            "informationGatheringAndRetrieval",
+            "informationDistributionMethods",
+            "lessonsLearned"
+        ],
+        "processGroup": "executing",
+        "process": "communicationsManagement"
+    },
+    "integratedChangeControl": {
+        "inputs": [
+            "projectManagementPlan",
+            "requestedChanges",
+            "workPerformanceInformation",
+            "recommendedPreventiveActions",
+            "recommendedCorrectiveActions",
+            "recommendedDefectRepair",
+            "deliverables"
+        ],
+        "outputs": [
+            "approvedChangeRequests",
+            "rejectedChangeRequests",
+            "deliverables",
+            "projectManagementPlan",
+            "projectScopeStatement",
+            "approvedCorrectiveActions",
+            "approvedPreventiveActions",
+            "approvedDefectRepair",
+            "validatedDefectRepair"
+        ],
+        "tools": ["projectManagementMethodology", "projectManagementInformationSystem", "expertJudgement"],
+        "processGroup": "monitoringAndControlling",
+        "process": "integrationManagement"
+    },
+    "manageProjectTeam": {
+        "inputs": [
+            "projectStaffAssignments",
+            "organizationalProcessAssets",
+            "rolesAndResponsibilities",
+            "projectOrganizationalCharts",
+            "staffingManagementPlan",
+            "teamPerformanceAssessment",
+            "workPerformanceInformation",
+            "performanceReports"
+        ],
+        "outputs": [
+            "requestedChanges",
+            "recommendedCorrectiveActions",
+            "recommendedPreventiveActions",
+            "organizationalProcessAssets",
+            "projectManagementPlan"
+        ],
+        "tools": ["observationAndConversation", "projectPerformanceAppraisals", "conflictManagement", "issueLog"],
+        "processGroup": "monitoringAndControlling",
+        "process": "humanResourceManagement"
+    },
+    "manageStakeholders": {
+        "inputs": ["communicationsManagementPlan", "organizationalProcessAssets"],
+        "outputs": [
+            "resolvedIssues",
+            "approvedChangeRequests",
+            "approvedCorrectiveActions",
+            "organizationalProcessAssets",
+            "projectManagementPlan"
+        ],
+        "tools": ["communicationsMethods", "issueLogs"],
+        "processGroup": "monitoringAndControlling",
+        "process": "communicationsManagement"
+    },
+    "monitorAndControlProjectWork": {
+        "inputs": ["projectManagementPlan", "workPerformanceInformation", "rejectedChangeRequests"],
+        "outputs": [
+            "recommendedCorrectiveActions",
+            "recommendedPreventiveActions",
+            "forecasts",
+            "recommendedDefectRepair",
+            "requestedChanges"
+        ],
+        "tools": [
+            "earnedValueTechnique",
+            "expertJudgement",
+            "projectManagementMethodology",
+            "projectManagementInformationSystem"
+        ],
+        "processGroup": "monitoringAndControlling",
+        "process": "integrationManagement"
+    },
+    "performQualityAssurance": {
+        "inputs": [
+            "qualityManagementPlan",
+            "qualityMetrics",
+            "processImprovementPlan",
+            "workPerformanceInformation",
+            "approvedChangeRequests",
+            "qualityControlMeasurements",
+            "implementedChangeRequests",
+            "implementedCorrectiveActions",
+            "implementedDefectRepair",
+            "implementedPreventiveActions"
+        ],
+        "outputs": [
+            "requestedChanges",
+            "recommendedCorrectiveActions",
+            "organizationalProcessAssets",
+            "projectManagementPlan"
+        ],
+        "tools": ["qualityPlanning", "qualityAudits", "processAnalysis", "qualityControl"],
+        "processGroup": "executing",
+        "process": "qualityManagement"
+    },
+    "performanceReporting": {
+        "inputs": [
+            "performanceMeasurements",
+            "forecastedCompletion",
+            "qualityControlMeasurements",
+            "performanceMeasurementBaseline",
+            "approvedChangeRequests",
+            "deliverables",
+            "workPerformanceInformation"
+        ],
+        "outputs": [
+            "performanceReports",
+            "forecasts",
+            "requestedChanges",
+            "recommendedCorrectiveActions",
+            "organizationalProcessAssets"
+        ],
+        "tools": [
+            "informationPresentationTools",
+            "performanceInformationGatheringAndCompilation",
+            "statusReviewMeetings",
+            "timeReportingSystems",
+            "costReportingSystems"
+        ],
+        "processGroup": "monitoringAndControlling",
+        "process": "communicationsManagement"
+    },
+    "planContracting": {
+        "inputs": [
+            "procurementManagementPlan",
+            "contractStatementOfWork",
+            "makeBuyDecisions",
+            "riskRegister",
+            "costBaseline",
+            "riskRelatedContractualAgreements",
+            "resourceRequirements",
+            "projectSchedule",
+            "activityCostEstimates"
+        ],
+        "outputs": ["procurementDocuments", "evaluationCriteria", "contractStatementOfWork"],
+        "tools": ["standardForms", "expertJudgement"],
+        "processGroup": "planning",
+        "process": "procurementManagement"
+    },
+    "planPurchasesAndAcquisitions": {
+        "inputs": [
+            "enterpriseEnvironmentalFactors",
+            "organizationalProcessAssets",
+            "projectScopeStatement",
+            "wbs",
+            "wbsDictionary",
+            "projectManagementPlan"
+        ],
+        "outputs": ["procurementManagementPlan", "contractStatementOfWork", "makeBuyDecisions", "requestedChanges"],
+        "tools": ["makeBuyAnalysis", "contractTypes", "expertJudgement"],
+        "processGroup": "planning",
+        "process": "procurementManagement"
+    },
+    "qualitativeRiskAnalysis": {
+        "inputs": ["organizationalProcessAssets", "projectScopeStatement", "riskManagementPlan", "riskRegister"],
+        "outputs": ["riskRegister"],
+        "tools": [
+            "riskProbabilityAndImpactAssesment",
+            "probabilityAndImpactMatrix",
+            "riskDataQualityAssessment",
+            "riskCategorization",
+            "riskUrgencyAssessment"
+        ],
+        "processGroup": "planning",
+        "process": "riskManagement"
+    },
+    "qualityPlanning": {
+        "inputs": [
+            "enterpriseEnvironmentalFactors",
+            "organizationalProcessAssets",
+            "projectScopeStatement",
+            "projectManagementPlan"
+        ],
+        "outputs": [
+            "qualityManagementPlan",
+            "qualityMetrics",
+            "qualityChecklists",
+            "processImprovementPlan",
+            "qualityBaseline",
+            "projectManagementPlan"
+        ],
+        "tools": [
+            "costBenefitAnalysis",
+            "benchmarking",
+            "costOfQuality",
+            "designOfExperiments",
+            "additionalQualityPlanning"
+        ],
+        "processGroup": "planning",
+        "process": "qualityManagement"
+    },
+    "quantitativeRiskAnalysis": {
+        "inputs": [
+            "organizationalProcessAssets",
+            "projectScopeStatement",
+            "riskManagementPlan",
+            "riskRegister",
+            "costManagementPlan",
+            "scheduleManagementPlan"
+        ],
+        "outputs": ["riskRegister"],
+        "tools": ["dataGatheringAndRepresentationTechniques", "quantitativeRiskAnalysisAndModelingTechniques"],
+        "processGroup": "planning",
+        "process": "riskManagement"
+    },
+    "requestSellerResponses": {
+        "inputs": ["organizationalProcessAssets", "procurementManagementPlan", "procurementDocuments"],
+        "outputs": ["qualifiedSellerList", "procurementDocumentPackage", "proposals"],
+        "tools": ["bidderConferences", "advertising", "developQualifiedSellerList"],
+        "processGroup": "executing",
+        "process": "procurementManagement"
+    },
+    "riskIdentification": {
+        "inputs": [
+            "enterpriseEnvironmentalFactors",
+            "organizationalProcessAssets",
+            "projectScopeStatement",
+            "riskManagementPlan",
+            "projectManagementPlan"
+        ],
+        "outputs": ["riskRegister"],
+        "tools": [
+            "documentationReviews",
+            "informationGatheringTechniques",
+            "checklistAnalysis",
+            "diagrammingTechniques",
+            "assumptionsAnalysis"
+        ],
+        "processGroup": "planning",
+        "process": "riskManagement"
+    },
+    "riskManagementPlanning": {
+        "inputs": [
+            "enterpriseEnvironmentalFactors",
+            "organizationalProcessAssets",
+            "projectScopeStatement",
+            "projectManagementPlan"
+        ],
+        "outputs": ["riskManagementPlan"],
+        "tools": ["planningMeetingsAndAnalysis"],
+        "processGroup": "planning",
+        "process": "riskManagement"
+    },
+    "riskMonitoringAndControl": {
+        "inputs": [
+            "riskManagementPlan",
+            "riskRegister",
+            "approvedChangeRequests",
+            "workPerformanceInformation",
+            "performanceReports"
+        ],
+        "outputs": [
+            "recommendedCorrectiveActions",
+            "requestedChanges",
+            "projectManagementPlan",
+            "organizationalProcessAssets",
+            "recommendedPreventiveActions",
+            "riskRegister"
+        ],
+        "tools": [
+            "riskReassessment",
+            "riskAudits",
+            "riskVarianceAndTrendAnalysis",
+            "technicalPerformanceMeasurements",
+            "reserveAnalysis",
+            "statusMeetings"
+        ],
+        "processGroup": "monitoringAndControlling",
+        "process": "riskManagement"
+    },
+    "riskResponsePlanning": {
+        "inputs": ["riskManagementPlan", "riskRegister"],
+        "outputs": ["riskRegister", "projectManagementPlan", "riskRelatedContractualAgreements"],
+        "tools": [
+            "strategiesForNegativeRiskOrThreats",
+            "strategiesForPositiveRisksOrOpportunities",
+            "strategyForBothThreatsAndOpportunities",
+            "contingentResponseStrategy"
+        ],
+        "processGroup": "planning",
+        "process": "riskManagement"
+    },
+    "scheduleControl": {
+        "inputs": ["scheduleManagementPlan", "scheduleBaseline", "performanceReports", "approvedChangeRequests"],
+        "outputs": [
+            "scheduleModelData",
+            "scheduleBaseline",
+            "performanceMeasurements",
+            "requestedChanges",
+            "projectManagementPlan",
+            "activityAttributes",
+            "recommendedCorrectiveActions",
+            "organizationalProcessAssets",
+            "activityList"
+        ],
+        "tools": [
+            "progressReporting",
+            "scheduleChangeControlSystem",
+            "performanceManagement",
+            "projectManagementSoftware",
+            "varianceAnalysis",
+            "scheduleComparisonBarCharts"
+        ],
+        "processGroup": "monitoringAndControlling",
+        "process": "timeManagement"
+    },
+    "scheduleDevelopment": {
+        "inputs": [
+            "activityAttributes",
+            "activityDurationEstimates",
+            "resourceCalendars",
+            "projectScheduleNetworkDiagrams",
+            "projectScopeStatement",
+            "activityResourceRequirements",
+            "riskRegister",
+            "activityList",
+            "organizationalProcessAssets"
+        ],
+        "outputs": [
+            "projectSchedule",
+            "scheduleModelData",
+            "requestedChanges",
+            "scheduleBaseline",
+            "activityAttributes",
+            "projectCalendar",
+            "projectManagementPlan",
+            "resourceRequirements",
+            "scheduleManagementPlan"
+        ],
+        "tools": [
+            "criticalPathMethod",
+            "scheduleCompression",
+            "whatifScenarioAnalysis",
+            "resourceLeveling",
+            "scheduleNetworkAnalysis",
+            "projectManagementSoftware",
+            "applyingCalendars",
+            "adjustingLeadsAndLags",
+            "scheduleModel",
+            "criticalChangeMethod"
+        ],
+        "processGroup": "planning",
+        "process": "timeManagement"
+    },
+    "scopeControl": {
+        "inputs": [
+            "projectScopeStatement",
+            "wbs",
+            "wbsDictionary",
+            "projectScopeManagementPlan",
+            "performanceReports",
+            "approvedChangeRequests",
+            "workPerformanceInformation"
+        ],
+        "outputs": [
+            "organizationalProcessAssets",
+            "recommendedCorrectiveActions",
+            "requestedChanges",
+            "projectScopeManagementPlan",
+            "scopeBaseline",
+            "wbsDictionary",
+            "wbs",
+            "projectScopeStatement"
+        ],
+        "tools": ["changeControlSystem", "varianceAnalysis", "replanning", "configurationManagementSystem"],
+        "processGroup": "monitoringAndControlling",
+        "process": "scopeManagement"
+    },
+    "scopeDefinition": {
+        "inputs": [
+            "organizationalProcessAssets",
+            "projectCharter",
+            "preliminaryProjectScopeStatement",
+            "projectScopeManagementPlan",
+            "approvedChangeRequests"
+        ],
+        "outputs": ["projectScopeStatement", "requestedChanges", "projectScopeManagementPlan"],
+        "tools": ["productAnalysis", "alternativesIdentification", "expertJudgement", "stakeholderAnalysis"],
+        "processGroup": "planning",
+        "process": "scopeManagement"
+    },
+    "scopePlanning": {
+        "inputs": [
+            "enterpriseEnvironmentalFactors",
+            "organizationalProcessAssets",
+            "projectCharter",
+            "preliminaryProjectScopeStatement",
+            "projectManagementPlan"
+        ],
+        "outputs": ["projectScopeManagementPlan"],
+        "tools": ["expertJudgement", "templates", "forms", "standards"],
+        "processGroup": "planning",
+        "process": "scopeManagement"
+    },
+    "scopeVerification": {
+        "inputs": ["projectScopeStatement", "wbsDictionary", "projectScopeManagementPlan", "deliverables"],
+        "outputs": ["acceptedDeliverables", "requestedChanges", "recommendedCorrectiveActions"],
+        "tools": ["inspection"],
+        "processGroup": "monitoringAndControlling",
+        "process": "scopeManagement"
+    },
+    "selectSellers": {
+        "inputs": [
+            "procurementManagementPlan",
+            "organizationalProcessAssets",
+            "evaluationCriteria",
+            "procurementDocumentPackage",
+            "proposals",
+            "riskRegister",
+            "riskRelatedContractualAgreements",
+            "qualifiedSellerList"
+        ],
+        "outputs": [
+            "requestedChanges",
+            "procurementManagementPlan",
+            "resourceAvailability",
+            "contractManagementPlan",
+            "outsourceContract",
+            "selectedSellers"
+        ],
+        "tools": [
+            "weightingSystem",
+            "independentEstimates",
+            "contractNegotiation",
+            "screeningSystem",
+            "sellerRatingSystems",
+            "expertJudgement",
+            "proposalEvaluationTechniques"
+        ],
+        "processGroup": "executing",
+        "process": "procurementManagement"
+    }
+}
