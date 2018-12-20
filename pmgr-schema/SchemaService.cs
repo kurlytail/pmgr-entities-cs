@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace BST.PMGR
 {
@@ -26,6 +27,8 @@ namespace BST.PMGR
             var streamReader = new StreamReader(stream);
             var jsonString = streamReader.ReadToEnd();
 
+            schemaMap = JsonConvert.DeserializeObject<Dictionary<String, SchemaActivity>>(jsonString);
+
             this.CreateSkeletonMaps();
             this.FixupActivities();
             this.fixupDocuments();
@@ -45,24 +48,24 @@ namespace BST.PMGR
 
                 foreach (var inputName in meta.inputs) {
                     var metaDocument = new MetaDocument { Name = name };
-                    this.documents.Add(inputName, metaDocument);
+                    this.documents[inputName] = metaDocument;
                 }
 
                 foreach (var outputName in meta.outputs) {
                     var metaDocument = new MetaDocument { Name = name };
-                    this.documents.Add(outputName, metaDocument);
+                    this.documents[outputName] = metaDocument;
                 }
 
                 foreach (var toolName in meta.tools) {
                     var metaTool = new MetaTool { Name = name };
-                    this.tools.Add(toolName, metaTool);
+                    this.tools[toolName] = metaTool;
                 }
 
                 var metaProcessGroup = new MetaProcessGroup() { Name = meta.processGroup };
-                this.processGroups.Add(meta.processGroup, metaProcessGroup);
+                this.processGroups[meta.processGroup] = metaProcessGroup;
 
                 var metaProcess = new MetaProcess() { Name = meta.process };
-                this.processes.Add(meta.process, metaProcess);
+                this.processes[meta.process] = metaProcess;
             }
         }
 
@@ -74,15 +77,15 @@ namespace BST.PMGR
 
                 var schemaActivity = this.schemaMap[name];
                 foreach(var inputName in schemaActivity.inputs) {
-                    metaActivity.inputs.Add(inputName, this.documents[inputName]);
+                    metaActivity.inputs[inputName] = this.documents[inputName];
                 }
 
                 foreach (var outputName in schemaActivity.outputs) {
-                    metaActivity.outputs.Add(outputName, this.documents[outputName]);
+                    metaActivity.outputs[outputName] = this.documents[outputName];
                 }
 
                 foreach (var toolName in schemaActivity.tools) {
-                    metaActivity.tools.Add(toolName, this.tools[toolName]);
+                    metaActivity.tools[toolName] = this.tools[toolName];
                 }
 
                 metaActivity.process = this.processes[schemaActivity.process];
@@ -99,22 +102,22 @@ namespace BST.PMGR
 
                 foreach(var inputName in schemaActivity.inputs) {
                     var metaDocument = this.documents[inputName];
-                    metaDocument.consumingActivities.Add(inputName, metaActivity);
+                    metaDocument.consumingActivities[inputName] = metaActivity;
                     foreach(var toolName in schemaActivity.tools) {
-                        metaDocument.consumingTools.Add(toolName, this.tools[toolName]);
+                        metaDocument.consumingTools[toolName] = this.tools[toolName];
                     }
-                    metaDocument.consumingProcesses.Add(schemaActivity.process, this.processes[schemaActivity.process]);
-                    metaDocument.consumingProcessGroups.Add(schemaActivity.processGroup, this.processGroups[schemaActivity.processGroup]);
+                    metaDocument.consumingProcesses[schemaActivity.process] = this.processes[schemaActivity.process];
+                    metaDocument.consumingProcessGroups[schemaActivity.processGroup] = this.processGroups[schemaActivity.processGroup];
                 }
 
                 foreach (var outputName in schemaActivity.outputs) {
                     var metaDocument = this.documents[outputName];
-                    metaDocument.producingActivities.Add(outputName, metaActivity);
+                    metaDocument.producingActivities[outputName] = metaActivity;
                     foreach (var toolName in schemaActivity.tools) {
-                        metaDocument.producingTools.Add(toolName, this.tools[toolName]);
+                        metaDocument.producingTools[toolName] = this.tools[toolName];
                     }
-                    metaDocument.producingProcesses.Add(schemaActivity.process, this.processes[schemaActivity.process]);
-                    metaDocument.producingProcessGroups.Add(schemaActivity.processGroup, this.processGroups[schemaActivity.processGroup]);
+                    metaDocument.producingProcesses[schemaActivity.process] = this.processes[schemaActivity.process];
+                    metaDocument.producingProcessGroups[schemaActivity.processGroup] = this.processGroups[schemaActivity.processGroup];
                 }
             }
         }
@@ -129,28 +132,64 @@ namespace BST.PMGR
                 var process = schemaActivity.process;
                 var metaProcess = this.processes[process];
 
-                metaProcess.activities.Add(name, metaActivity);
+                metaProcess.activities[name] = metaActivity;
                 foreach (var inputName in schemaActivity.inputs) {
-                    metaProcess.consumedDocuments.Add(inputName, this.documents[inputName]);
+                    metaProcess.consumedDocuments[inputName] = this.documents[inputName];
                 }
                 foreach (var outputName in schemaActivity.outputs) {
-                    metaProcess.producedDocuments.Add(outputName, this.documents[outputName]);
+                    metaProcess.producedDocuments[outputName] = this.documents[outputName];
                 }
-                metaProcess.processGroup = processGroups[schemaActivity.process];
+                metaProcess.processGroup = processGroups[schemaActivity.processGroup];
                 foreach(var toolName in schemaActivity.tools) {
-                    metaProcess.tools.Add(toolName, this.tools[toolName]);
+                    metaProcess.tools[toolName] = this.tools[toolName];
                 }
             }
         }
 
         private void fixupProcessGroups()
         {
+            foreach (var entry in this.activities) {
+                var name = entry.Key;
+                var metaActivity = entry.Value;
+                var schemaActivity = this.schemaMap[name];
 
+                var processGroupName = schemaActivity.processGroup;
+                var metaProcessGroup = this.processGroups[processGroupName];
+                metaProcessGroup.activities[name] = metaActivity;
+                foreach (var inputName in schemaActivity.inputs) {
+                    metaProcessGroup.consumedDocuments[inputName] = this.documents[inputName];
+                }
+                foreach (var outputName in schemaActivity.outputs) {
+                    metaProcessGroup.producedDocuments[outputName] = this.documents[outputName];
+                }
+                metaProcessGroup.processes[schemaActivity.process] = this.processes[schemaActivity.process];
+                foreach (var toolName in schemaActivity.tools) {
+                    metaProcessGroup.tools[toolName] = this.tools[toolName];
+                }
+            }
         }
 
         private void fixupTools()
         {
+            foreach (var entry in this.activities) {
+                var name = entry.Key;
+                var metaActivity = entry.Value;
+                var schemaActivity = this.schemaMap[name];
 
+                foreach (var toolName in schemaActivity.tools) {
+                    var metaTool = this.tools[toolName];
+  
+                    metaTool.activities[name] = metaActivity;
+                    foreach (var inputName in schemaActivity.inputs) {
+                        metaTool.consumedDocuments[inputName] = this.documents[inputName];
+                    }
+                    foreach (var outputName in schemaActivity.outputs) {
+                        metaTool.producedDocuments[outputName] = this.documents[outputName];
+                    }
+                    metaTool.processes[schemaActivity.process] = this.processes[schemaActivity.process];
+                    metaTool.processGroups[schemaActivity.processGroup] = this.processGroups[schemaActivity.processGroup];
+                }
+            }
         }
     }
 }

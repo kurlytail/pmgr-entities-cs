@@ -1,0 +1,132 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETPortable,Version=v4.5,Profile=Profile111": {
+      "Newtonsoft.Json/12.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll": {}
+        }
+      },
+      "NuGet.Build.Packaging/0.2.0": {
+        "type": "package",
+        "build": {
+          "build/NuGet.Build.Packaging.props": {},
+          "build/NuGet.Build.Packaging.targets": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Newtonsoft.Json/12.0.1": {
+      "sha512": "jmVyoEyk0In8r+AObYQyFKVFm7uSRzE0XSHSbEtBJcZDMV6DqJoyB4FLcHwprPVhAh826so0db3DIKXVnpGoPA==",
+      "type": "package",
+      "path": "newtonsoft.json/12.0.1",
+      "files": [
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.pdb",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.pdb",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.pdb",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.pdb",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.pdb",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.pdb",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.pdb",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.pdb",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.pdb",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.12.0.1.nupkg.sha512",
+        "newtonsoft.json.nuspec"
+      ]
+    },
+    "NuGet.Build.Packaging/0.2.0": {
+      "sha512": "EGw4itPEPlOvgB3uZ8GKTrikbeN2GkF0GFW3hK+BK1dI7ELwuHDH5t1vg8e+XKB4DXuHz6sS7sjMMiUCJx5I5A==",
+      "type": "package",
+      "path": "nuget.build.packaging/0.2.0",
+      "files": [
+        ".signature.p7s",
+        "build/ApiIntersect.exe",
+        "build/ApiIntersect.exe.config",
+        "build/GenerateReferenceAssembly.csproj",
+        "build/ICSharpCode.Decompiler.dll",
+        "build/ICSharpCode.NRefactory.CSharp.dll",
+        "build/ICSharpCode.NRefactory.Cecil.dll",
+        "build/ICSharpCode.NRefactory.Xml.dll",
+        "build/ICSharpCode.NRefactory.dll",
+        "build/Mono.Cecil.Mdb.dll",
+        "build/Mono.Cecil.Pdb.dll",
+        "build/Mono.Cecil.Rocks.dll",
+        "build/Mono.Cecil.dll",
+        "build/Mono.Options.dll",
+        "build/NuGet.Build.Packaging.Authoring.props",
+        "build/NuGet.Build.Packaging.Authoring.targets",
+        "build/NuGet.Build.Packaging.Compatibility.props",
+        "build/NuGet.Build.Packaging.CrossTargeting.targets",
+        "build/NuGet.Build.Packaging.Inference.targets",
+        "build/NuGet.Build.Packaging.Legacy.props",
+        "build/NuGet.Build.Packaging.Legacy.targets",
+        "build/NuGet.Build.Packaging.ReferenceAssembly.targets",
+        "build/NuGet.Build.Packaging.Tasks.dll",
+        "build/NuGet.Build.Packaging.Tasks.pdb",
+        "build/NuGet.Build.Packaging.Version.props",
+        "build/NuGet.Build.Packaging.props",
+        "build/NuGet.Build.Packaging.targets",
+        "nuget.build.packaging.0.2.0.nupkg.sha512",
+        "nuget.build.packaging.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "": [
+      "Newtonsoft.Json >= 12.0.1",
+      "NuGet.Build.Packaging >= 0.2.0"
+    ],
+    ".NETPortable,Version=v4.5,Profile=Profile111": []
+  },
+  "packageFolders": {
+    "/Users/ashwin/.nuget/packages/": {}
+  },
+  "project": {
+    "restore": {
+      "projectUniqueName": "/Users/ashwin/pmgr-csharp/pmgr-entities/pmgr-schema/pmgr-schema.csproj",
+      "projectName": "pmgr-schema",
+      "projectPath": "/Users/ashwin/pmgr-csharp/pmgr-entities/pmgr-schema/pmgr-schema.csproj",
+      "projectJsonPath": "/Users/ashwin/pmgr-csharp/pmgr-entities/pmgr-schema/project.json",
+      "packagesPath": "/Users/ashwin/.nuget/packages/",
+      "projectStyle": "ProjectJson",
+      "configFilePaths": [
+        "/Users/ashwin/.config/NuGet/NuGet.Config"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      }
+    },
+    "dependencies": {
+      "Newtonsoft.Json": "12.0.1",
+      "NuGet.Build.Packaging": "0.2.0"
+    },
+    "frameworks": {
+      "portable45-net45+win8+wpa81": {}
+    }
+  }
+}
